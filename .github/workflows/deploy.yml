@@ -24,14 +24,22 @@ jobs:
     - name: Build Angular app
       run: npm run build -- --configuration production
 
+    # ✅ Paso de autenticación correcto
+    - name: Authenticate with Google Cloud
+      uses: google-github-actions/auth@v2
+      with:
+        credentials_json: '${{ secrets.GCP_SA_KEY }}'
 
-    - name: Install gcloud SDK
+    # ✅ Setup del CLI (después de auth)
+    - name: Setup gcloud CLI
       uses: google-github-actions/setup-gcloud@v2
       with:
         project_id: ${{ secrets.GCP_PROJECT_ID }}
-        service_account_key: ${{ secrets.GCP_SA_KEY }}
-        export_default_credentials: true
 
+    - name: Check active account
+      run: gcloud auth list
+
+    # ✅ Subida usando gsutil con credenciales activadas
     - name: Upload to GCS using gsutil (MIME-aware)
       run: |
         gsutil -m rsync -r -a public-read dist/saludo/browser gs://$GCP_BUCKET_NAME
