@@ -42,6 +42,6 @@ jobs:
     # ✅ Subida usando gsutil con credenciales activadas
     - name: Upload to GCS using gsutil (MIME-aware)
       run: |
-        gsutil -m rsync -r -a public-read dist/saludo/browser gs://$GCP_BUCKET_NAME
+        gsutil -m rsync -r dist/saludo/browser gs://$GCP_BUCKET_NAME
       env:
         GCP_BUCKET_NAME: ${{ secrets.GCP_BUCKET_NAME }}
