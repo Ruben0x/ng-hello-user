@@ -2,7 +2,7 @@
 
   <input type="text" placeholder="Ingresar nombre" (keyup.enter)="onInputName(txtName.value)" #txtName>
 
-  <h1>{{message()}}</h1>
+  <h1>{{message().toString()}}</h1>
 </section>
 
 <router-outlet />
