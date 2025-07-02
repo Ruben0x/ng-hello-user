@@ -22,7 +22,8 @@ export class AppComponent {
 
     this.helloService.getHello(name)
       .subscribe(resp => {
-        this.message.set(JSON.stringify(resp.mensaje))
+        const name = resp.mensaje
+        this.message.set(name)
       });
 
   }
