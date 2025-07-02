@@ -1,59 +1,26 @@
-# Saludo
+# 🚀 Despliegue continuo de aplicación Angular en Google Cloud Storage con GitHub Actions
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.15.
+Este repositorio contiene una aplicación Angular configurada para ser desplegada automáticamente en un bucket de Google Cloud Storage cada vez que se realiza un push a la rama `main`.
 
-## Development server
+## 🛠️ Tecnologías utilizadas
 
-To start a local development server, run:
+- Angular
+- GitHub Actions
+- Google Cloud Storage (GCS)
+- gsutil CLI
 
-```bash
-ng serve
-```
+---
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 🧾 Funcionalidad de la aplicación
 
-## Code scaffolding
+La aplicación Angular incluye un formulario sencillo donde el usuario puede ingresar su nombre. Al hacer clic en el botón **"Enter"**, se realiza una consulta a una API para obtener un mensaje de saludo personalizado.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### 🔁 Flujo:
 
-```bash
-ng generate component component-name
-```
+1. El usuario ingresa su nombre.
+2. Se llama al endpoint de la API (`/saludo?name=...`).
+3. La API responde con un saludo como: `"Hola Ruben"`.
+4. El mensaje se muestra automáticamente en pantalla.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Este comportamiento se implementa mediante un `Service` de Angular (`HelloService`) que realiza la solicitud HTTP, y un método `onInputName` que actualiza el mensaje mostrado en el componente.
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
