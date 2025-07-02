@@ -32,6 +32,6 @@ jobs:
     - name: Upload to GCS bucket
       uses: google-github-actions/upload-cloud-storage@v2
       with:
-        path: dist/saludo
+        path: dist/saludo/browser
         destination: '${{ secrets.GCP_BUCKET_NAME }}'
         parent: false
